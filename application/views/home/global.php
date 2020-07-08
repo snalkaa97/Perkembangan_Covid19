@@ -54,47 +54,45 @@
                         </div>
                     </div> -->
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-head">
-                    <div class="ibox-title">Data Perkembangan Dunia</div>
-                    <div class="ibox-tools">
-                        <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
-                        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item">option 1</a>
-                            <a class="dropdown-item">option 2</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="ibox-body">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Negara</th>
-                                <th>Positif</th>
-                                <th>Kasus Aktif</th>
-                                <th>Sembuh</th>
-                                <th>Meninggal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1;
-                            foreach ($lokasi as $key) { ?>
-                                <tr>
-                                    <td><?= $no++ ?></td>
-                                    <td><?= $key['attributes']['Country_Region'] ?></td>
-                                    <td><?= number_format($key['attributes']['Confirmed']) ?></td>
-                                    <td><?= number_format($key['attributes']['Active']) ?></td>
-                                    <td><?= number_format($key['attributes']['Recovered']) ?></td>
-                                    <td><?= number_format($key['attributes']['Deaths']) ?></td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title">Data Perkembangan Dunia</div>
+            <div class="ibox-tools">
+                <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item">option 1</a>
+                    <a class="dropdown-item">option 2</a>
                 </div>
             </div>
         </div>
+        <div class="ibox-body">
+            <table class="table table-striped table-hover" id="example-table" cellspacing="0" width="100%"">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Negara</th>
+                        <th>Positif</th>
+                        <th>Kasus Aktif</th>
+                        <th>Sembuh</th>
+                        <th>Meninggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($lokasi as $key) { ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $key['attributes']['Country_Region'] ?></td>
+                            <td><?= number_format($key['attributes']['Confirmed']) ?></td>
+                            <td><?= number_format($key['attributes']['Active']) ?></td>
+                            <td><?= number_format($key['attributes']['Recovered']) ?></td>
+                            <td><?= number_format($key['attributes']['Deaths']) ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <script type=" text/javascript"> $(function() { $('#example-table').DataTable({ pageLength: 10, }); }) </script>
